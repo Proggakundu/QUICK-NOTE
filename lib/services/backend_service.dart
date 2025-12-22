@@ -1,36 +1,33 @@
-import 'package:dio/dio.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/note.dart';
 import 'auth_service.dart';
 import 'storage_service.dart';
 
 class BackendService {
-  final Dio _dio = Dio();
+  final _firestore = FirebaseFirestore.instance;
   final AuthService _authService = AuthService();
-  
-  // Replace with your actual Cloud Function URL
-  static const String cloudFunctionUrl = 
-      'https://us-central1-progga-k-fall-25-final.cloudfunctions.net/syncNotes';
   
   Future<bool> syncNote(Note note) async {
     try {
       final userId = _authService.currentUserId ?? 'anonymous';
-      final token = await _authService.authToken;
       
-      final response = await _dio.post(
-        cloudFunctionUrl,
-        data: note.toJson(),
-        options: Options(
-          headers: {
-            'x-user-id': userId,
-            'Content-Type': 'application/json',
-            if (token != null) 'Authorization': 'Bearer $token',
-          },
-          sendTimeout: const Duration(seconds: 10),
-          receiveTimeout: const Duration(seconds: 10),
-        ),
-      );
+      // Save directly to Firestore (no Cloud Function needed!)
+      await _firestore
+          .collection('notes')
+          .doc(note.id)
+          .set({
+            'id': note.id,
+            'title': note.title,
+            'content': note.content,
+            'imagePaths': note.imagePaths,
+            'latitude': note.latitude,
+            'longitude': note.longitude,
+            'createdAt': note.createdAt.toIso8601String(),
+            'userId': userId,
+            'syncedAt': FieldValue.serverTimestamp(),
+          }, SetOptions(merge: true));
       
-      return response.statusCode == 200;
+      return true;
     } catch (e) {
       print('Sync failed for note ${note.id}: $e');
       return false;
@@ -44,7 +41,6 @@ class BackendService {
     }
     
     try {
-      // Use storage service to get user-specific box
       final box = await storageService.getNotesBox();
       final unsyncedNotes = box.values.where((n) => !n.synced).toList();
       
@@ -68,14 +64,10 @@ class BackendService {
   
   Future<bool> testConnection() async {
     try {
-      final response = await _dio.get(
-        cloudFunctionUrl,
-        options: Options(
-          sendTimeout: const Duration(seconds: 5),
-          receiveTimeout: const Duration(seconds: 5),
-        ),
-      );
-      return response.statusCode == 200 || response.statusCode == 405;
+      await _firestore.collection('test').doc('connection').set({
+        'timestamp': FieldValue.serverTimestamp(),
+      });
+      return true;
     } catch (e) {
       print('Connection test failed: $e');
       return false;

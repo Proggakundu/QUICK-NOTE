@@ -55,3 +55,4 @@ web/
 # Build artifacts
 *.class
 *.lock
+node_modules
