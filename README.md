@@ -107,18 +107,15 @@ A cross-platform note-taking app that allows users to:
 
 ### Setup
 **Configure Firebase**:
-   - Download `GoogleService-Info.plist` from Firebase Console
-   - Place in `ios/Runner/` directory
-   - Update `lib/firebase_options.dart` with your iOS config:
-     ```dart
-     static const FirebaseOptions ios = FirebaseOptions(
-       apiKey: 'YOUR_IOS_API_KEY',
-       appId: 'YOUR_IOS_APP_ID',
-       messagingSenderId: '459352717528',
-       projectId: 'progga-k-fall-25-final-945bd',
-       storageBucket: 'progga-k-fall-25-final-945bd.firebasestorage.app',
-       iosBundleId: 'com.yourcompany.quicknotesapp',
-     );
+    const firebaseConfig = {
+    apiKey: "AIzaSyBIOn2osArsok0HhOXEozzQTx-AGoRT5Q0",
+    authDomain: "progga-k-fall-25-final-945bd.firebaseapp.com",
+    projectId: "progga-k-fall-25-final-945bd",
+    storageBucket: "progga-k-fall-25-final-945bd.firebasestorage.app",
+    messagingSenderId: "459352717528",
+    appId: "1:459352717528:web:4dc3758fe9e3be15d83fad",
+    measurementId: "G-K49CK3QW5X"
+    };
      ```
 
 
