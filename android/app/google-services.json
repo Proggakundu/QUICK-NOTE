@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "459352717528",
+    "project_id": "progga-k-fall-25-final-945bd",
+    "storage_bucket": "progga-k-fall-25-final-945bd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459352717528:android:1f72d9d027f8b6b0d83fad",
+        "android_client_info": {
+          "package_name": "com.example.quick_notes_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjPPc8mmGztkbmAya9Nq5DLGlSDI_C-Rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

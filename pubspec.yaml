@@ -1,0 +1,54 @@
+name: quick_notes_app
+description: A note-taking app with Firebase sync
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  cloud_firestore: ^4.13.6
+  firebase_storage: ^11.5.6
+
+
+  functions_framework: ^0.4.0
+  shelf: ^1.4.1
+  postgres: ^2.6.3
+
+  # Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  shared_preferences: ^2.2.2
+  
+  # Image & Camera
+  image_picker: ^1.0.4
+  
+  # Location
+  geolocator: ^10.1.0
+  
+  # Networking
+  dio: ^5.4.0
+  
+  # Utilities
+  uuid: ^4.2.1
+  
+  # UI
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.6
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
