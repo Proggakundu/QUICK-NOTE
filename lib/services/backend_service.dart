@@ -9,7 +9,7 @@ class BackendService {
   
   // Replace with your actual Cloud Function URL
   static const String cloudFunctionUrl = 
-      'https://YOUR-REGION-YOUR-PROJECT.cloudfunctions.net/syncNotes';
+      'https://us-central1-progga-k-fall-25-final.cloudfunctions.net/syncNotes';
   
   Future<bool> syncNote(Note note) async {
     try {
