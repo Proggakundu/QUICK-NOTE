@@ -4,7 +4,8 @@ A feature-rich mobile note-taking application built with Flutter and Firebase.
 
 # Project Console:
  https://console.firebase.google.com/project/progga-k-fall-25-final-945bd/overview
----
+--
+# Reviewer: @alphabetacreatives.com 
 
 ## App Idea
 
@@ -49,7 +50,6 @@ A cross-platform note-taking app that allows users to:
 ### Local-First Architecture
 1. **Primary Storage**: Hive (local NoSQL database)
    - All notes saved locally first
-   - User-specific boxes (`notes_{userId}`)
    - Guest mode support with separate storage
 
 
@@ -78,7 +78,7 @@ A cross-platform note-taking app that allows users to:
 - Support collaborative features (future)
 
 **Features**:
-- User authentication via `x-user-id` header
+- User authentication
 - Upsert operations (insert or update)
 - CORS support for web clients
 - Error handling and logging
@@ -87,7 +87,7 @@ A cross-platform note-taking app that allows users to:
 **Deployment**: Google Cloud Run or Firebase Functions
 
 ---
-**Toggle in App**: Profile screen → Settings
+**Toggle in App**: Profile screen(Settings)
 
 ---
 ### Firebase Authentication
@@ -130,7 +130,7 @@ A cross-platform note-taking app that allows users to:
 - ✅ GPS location tagging
 - ✅ Auto-save (every 5 seconds)
 - ✅ Offline-first architecture
-- ✅ Cloud sync (optional)
+- ✅ Cloud sync
 - ✅ Dark mode
 - ✅ Feature flags
 - ✅ User-specific data isolation
