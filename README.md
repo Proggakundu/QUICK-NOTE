@@ -5,7 +5,7 @@ A feature-rich mobile note-taking application built with Flutter and Firebase.
 # Project Console:
  https://console.firebase.google.com/project/progga-k-fall-25-final-945bd/overview
 --
-# Reviewer: @alphabetacreatives.com 
+# URL : https://github.com/Proggakundu/QUICK-NOTE.git
 
 ## App Idea
 
